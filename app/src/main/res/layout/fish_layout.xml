@@ -1,38 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/teal_700"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="1dp"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-    <TextView
-        android:id="@+id/msg"
-        style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
-        android:background="@color/cardview_light_background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textSize="40sp"
-        android:textColor="@color/purple_200"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+   <RelativeLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/rounded_background_secondary"
+       android:gravity="right|end">
+
+      <View
+          android:layout_width="40dp"
+          android:layout_height="1dp"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="3dp"
+          android:background="@drawable/rounded_background" />
+
+
+
+      <TextView
+          android:id="@+id/msg"
+          style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:layout_marginBottom="8dp"
+          android:background="#EEf9c74f"
+          android:fontFamily="sans-serif"
+          android:minWidth="150dp"
+          android:padding="2dp"
+          android:text="test"
+          android:textAlignment="center"
+          android:textColor="#3d5a80"
+          android:textSize="40sp" />
+      <ImageButton
+          android:layout_width="12dp"
+          android:layout_height="12dp"
+          android:layout_marginRight="4dp"
+          android:background="@drawable/ic_round_close_24"
+          android:layout_marginEnd="4dp"
+          android:layout_marginTop="2dp"/>
+   </RelativeLayout>
+</RelativeLayout>
