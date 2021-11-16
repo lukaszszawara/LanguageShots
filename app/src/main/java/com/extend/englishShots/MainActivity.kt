@@ -11,7 +11,8 @@ import android.provider.Settings
 import android.util.Log
 import androidx.annotation.RequiresApi
 import com.extend.englishShots.Services.ForegroundService
-
+import com.hbb20.countrypicker.dialog.launchCountryPickerDialog
+import com.hbb20.countrypicker.models.CPCountry
 
 class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
@@ -26,13 +27,22 @@ class MainActivity : AppCompatActivity() {
 
 
         if(isMyServiceRunning() == false) {
-            ForegroundService.startService(this, "Foreground Service is running...")
+            ForegroundService.startService(this, "Fiszki do mauki języków...")
             Log.i("TAG", "this will be called immediately")
         }else{
             ForegroundService.stopService(this)
-            ForegroundService.startService(this, "Foreground Service is running...")
-
+            ForegroundService.startService(this, "Fiszki do nauki języków...")
         }
+
+
+
+        this.launchCountryPickerDialog (customMasterCountries = "GB,DE,FR"){ selectedCountry: CPCountry? ->
+            // your code to handle selected country
+        }
+
+
+
+
     }
 
 

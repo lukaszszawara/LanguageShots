@@ -42,9 +42,9 @@ public class ForegroundService : Service() {
             0, notificationIntent, 0
         )
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Foreground Service Kotlin Example")
+            .setContentTitle("Aplikacja do nauki")
             .setContentText(input)
-            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setSmallIcon(R.mipmap.ic_launcher_round)
             .setContentIntent(pendingIntent)
             .build()
         startForeground(1, notification)

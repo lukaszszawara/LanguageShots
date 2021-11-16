@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
    <RelativeLayout
+       android:id="@+id/frame"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:background="@drawable/rounded_background_secondary"
@@ -15,11 +16,10 @@
 
       <View
           android:layout_width="40dp"
-          android:layout_height="1dp"
+          android:layout_height="2dp"
           android:layout_centerHorizontal="true"
-          android:layout_marginTop="3dp"
+          android:layout_marginTop="4dp"
           android:background="@drawable/rounded_background" />
-
 
 
       <TextView
@@ -27,22 +27,24 @@
           style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="8dp"
-          android:layout_marginBottom="8dp"
-          android:background="#EEf9c74f"
-          android:fontFamily="sans-serif"
+          android:layout_marginTop="18dp"
+          android:layout_marginBottom="12dp"
+          android:background="#eeeeeeee"
+          android:fontFamily="@font/winkle_regular"
           android:minWidth="150dp"
           android:padding="2dp"
           android:text="test"
           android:textAlignment="center"
-          android:textColor="#3d5a80"
+          android:textColor="@color/black"
           android:textSize="40sp" />
+
       <ImageButton
-          android:layout_width="12dp"
-          android:layout_height="12dp"
-          android:layout_marginRight="4dp"
-          android:background="@drawable/ic_round_close_24"
+          android:id="@+id/close_button"
+          android:layout_width="16dp"
+          android:layout_height="16dp"
+          android:layout_marginTop="2dp"
           android:layout_marginEnd="4dp"
-          android:layout_marginTop="2dp"/>
+          android:layout_marginRight="4dp"
+          android:background="@drawable/ic_round_close_24" />
    </RelativeLayout>
 </RelativeLayout>
