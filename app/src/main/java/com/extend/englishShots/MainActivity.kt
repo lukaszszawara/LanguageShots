@@ -11,6 +11,8 @@ import android.provider.Settings
 import android.util.Log
 import androidx.annotation.RequiresApi
 import com.extend.englishShots.Services.ForegroundService
+import com.extend.englishShots.Utils.Const
+import com.hbb20.CountryPickerView
 import com.hbb20.countrypicker.dialog.launchCountryPickerDialog
 import com.hbb20.countrypicker.models.CPCountry
 
@@ -34,13 +36,24 @@ class MainActivity : AppCompatActivity() {
             ForegroundService.startService(this, "Fiszki do nauki języków...")
         }
 
+        val countryPicker = findViewById<CountryPickerView>(R.id.countryPicker)
 
-
-        this.launchCountryPickerDialog (customMasterCountries = "GB,DE,FR"){ selectedCountry: CPCountry? ->
-            // your code to handle selected country
+        // Modify CPViewConfig if you need. Access cpViewConfig through `cpViewHelper`
+        countryPicker.cpViewHelper.cpViewConfig.viewTextGenerator = { cpCountry: CPCountry ->
+            "${cpCountry.name} (${cpCountry.alpha2})"
+        }
+        val list = arrayListOf<CPCountry>()
+        for(item in countryPicker.cpViewHelper.cpDataStore.countryList){
+        Log.d("TAG","item country"+item.englishName +" "+item.currencySymbol)
+            if (!item.englishName.equals(Const.EN_NAME)
+                &&!item.englishName.equals(Const.FR_NAME)
+                &&!item.englishName.equals(Const.DE_NAME)){
+                list.add(item);
+            }
         }
 
-
+        countryPicker.cpViewHelper.cpDataStore.countryList.removeAll(list)
+        countryPicker.cpViewHelper.refreshView()
 
 
     }
