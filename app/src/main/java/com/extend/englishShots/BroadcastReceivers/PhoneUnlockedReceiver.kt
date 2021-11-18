@@ -29,7 +29,6 @@ class PhoneUnlockedReceiver : BroadcastReceiver() {
     private var context : Context? = null
     private var sharedPreferences : SharedPreferences? = null
     override fun onReceive(context: Context?, intent: Intent?) {
-        Log.d("TAG","RECEIVED SCREEN UNLOCK!")
         this.context = context
         mParams = WindowManager.LayoutParams(
             WRAP_CONTENT,
@@ -47,12 +46,12 @@ class PhoneUnlockedReceiver : BroadcastReceiver() {
         val translation = dictionaryMap[key]
         context?.getSharedPreferences(Const.PREF_KEY,Context.MODE_PRIVATE)
             .also { this.sharedPreferences = it }
-        var temporaryView = LayoutInflater.from(context).inflate(R.layout.fish_layout, null)
+        val temporaryView = LayoutInflater.from(context).inflate(R.layout.fish_layout, null)
         (context?.getSystemService(Context.WINDOW_SERVICE) as WindowManager).also { wm = it }
         key.also { temporaryView!!.findViewById<TextView>(R.id.msg).text = it }
         if(this.rootView == null) {
             wm!!.addView(temporaryView, mParams)
-            rootView = temporaryView;
+            rootView = temporaryView
         }
         if (mParams != null) {
             sharedPreferences?.let { setPosition(it.getInt(Const.X_KEY,200),it.getInt(Const.Y_KEY,200)) }
@@ -70,11 +69,11 @@ class PhoneUnlockedReceiver : BroadcastReceiver() {
 
         rootView!!.findViewById<View>(R.id.close_button).setOnClickListener {
             wm!!.removeView(rootView)
-            rootView = null;
+            rootView = null
         }
 
         CoroutineScope(Dispatchers.IO).launch {
-            delay(TimeUnit.SECONDS.toMillis(Const.TIMEOUT_TRANSITION))
+            delay(TimeUnit.SECONDS.toMillis(sharedPreferences?.getLong(Const.TIMEOUT_TRANSITION,4)!!))
             withContext(Dispatchers.Main) {
                 if(rootView != null) {
                     rootView!!.findViewById<TextView>(R.id.msg).text = translation
@@ -83,9 +82,8 @@ class PhoneUnlockedReceiver : BroadcastReceiver() {
         }
 
         CoroutineScope(Dispatchers.IO).launch {
-            delay(TimeUnit.SECONDS.toMillis(Const.TIMEOUT_DISSAPEAR))
+            delay(TimeUnit.SECONDS.toMillis(sharedPreferences?.getLong(Const.TIMEOUT_TRANSITION,4)!! + sharedPreferences?.getLong(Const.TIMEOUT_DISSAPEAR,4)!!))
             withContext(Dispatchers.Main) {
-                Log.i("TAG", "this will be called after 3 seconds")
                 if(rootView != null) {
                     wm!!.removeView(rootView)
                     rootView = null

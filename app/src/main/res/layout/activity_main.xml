@@ -23,12 +23,16 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/text_main"
-            android:layout_margin="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wybierz język jakiego chcesz się nauczyć:"/>
+
+            <TextView
+                android:id="@+id/text_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/choose_language_to_learn" />
 
             <com.hbb20.CountryPickerView
                 android:id="@+id/countryPicker"
@@ -57,24 +61,28 @@
                 android:id="@+id/text_secondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Wybierz jak długo fiszka będzie wyświetlać w języku jaki chcesz się nauczyć:"/>
+                android:text="@string/transition_how_long_text"/>
             <CheckBox
+                android:id="@+id/origin_lang_checkbox_4s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4s"/>
 
             <CheckBox
+                android:id="@+id/origin_lang_checkbox_8s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8s"/>
 
             <CheckBox
+                android:id="@+id/origin_lang_checkbox_12s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12s"/>
 
 
             <CheckBox
+                android:id="@+id/origin_lang_checkbox_16s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="16s"/>
@@ -100,24 +108,28 @@
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Wybierz jak długo fiszka będzie wyświetlać tłumaczenie:"/>
+                android:text="@string/dismiss_how_long_text"/>
             <CheckBox
+                android:id="@+id/translation_lang_checkbox_4s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4s"/>
 
             <CheckBox
+                android:id="@+id/translation_lang_checkbox_8s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8s"/>
 
             <CheckBox
+                android:id="@+id/translation_lang_checkbox_12s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12s"/>
 
 
             <CheckBox
+                android:id="@+id/translation_lang_checkbox_16s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="16s"/>

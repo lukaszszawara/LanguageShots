@@ -17,9 +17,9 @@ import com.extend.englishShots.BroadcastReceivers.PhoneUnlockedReceiver
 import com.extend.englishShots.R
 
 
-public class ForegroundService : Service() {
+class ForegroundService : Service() {
 
-    private val CHANNEL_ID = "ForegroundService Kotlin"
+    private val CHANNEL_ID = "ENGLISHSHOTSID"
     companion object {
         fun startService(context: Context, message: String) {
             val startIntent = Intent(context, ForegroundService::class.java)
@@ -39,12 +39,11 @@ public class ForegroundService : Service() {
         val notificationIntent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
             this,
-            0, notificationIntent, 0
-        )
+            0, notificationIntent, 0)
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Aplikacja do nauki")
+            .setContentTitle(getString(R.string.foreground_service_title))
             .setContentText(input)
-            .setSmallIcon(R.mipmap.ic_launcher_round)
+            .setSmallIcon(R.drawable.notification_icon)
             .setContentIntent(pendingIntent)
             .build()
         startForeground(1, notification)

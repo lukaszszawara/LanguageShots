@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">English shots!</string>
+    <string name="foreground_service_title">Aplikacja do nauki</string>
+    <string name="draw_over_apps_permission">Aplikacja wymaga rysowania nad innymi aplikacjami aby móc pokazać fiszkę po odblokowaniu urządzenia</string>
+    <string name="foreground_service_sub_title">Fiszki do mauki języków...</string>
+    <string name="dismiss_how_long_text">Wybierz jak długo fiszka będzie wyświetlać tłumaczenie:</string>
+    <string name="transition_how_long_text">Wybierz jak długo fiszka będzie wyświetlać w języku jaki chcesz się nauczyć:</string>
+    <string name="choose_language_to_learn">Wybierz język jakiego chcesz się nauczyć:</string>
 </resources>
