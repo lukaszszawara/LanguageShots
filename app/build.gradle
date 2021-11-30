@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
-
+    compileSdk 27
+    buildToolsVersion "27.0.1"
     defaultConfig {
         applicationId "com.extend.englishShots"
         minSdk 26
-        targetSdk 31
+        targetSdk 27
         versionCode 1
         versionName "1.0"
 
